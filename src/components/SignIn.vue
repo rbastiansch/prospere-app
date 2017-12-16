@@ -11,7 +11,7 @@
 </template>
 
 <script>
-  import login from '@/services/index';
+  import login from '@/services/login';
 
   export default {
     name: 'SignIn',
@@ -44,7 +44,9 @@
           });
       },
       setLogin(token) {
-        this.$store.dispatch('signin', { token });
+        const { email } = this;
+        const info = { email, token };
+        this.$store.dispatch('signin', { info });
         this.$router.push('/');
       },
     },

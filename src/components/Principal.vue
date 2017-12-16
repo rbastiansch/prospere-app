@@ -1,12 +1,18 @@
 <template>
-  <div class="hello">
-    <h1>Principal</h1>
+  <div>
+    <h1>Prospere App</h1>
+    <ContactList></ContactList>
   </div>
 </template>
 
 <script>
+import ContactList from './ContactList';
+
 export default {
   name: 'Principal',
+  components: {
+    ContactList,
+  },
   computed: {
     isLoggedIn() {
       return this.$store.state.isLoggedIn;

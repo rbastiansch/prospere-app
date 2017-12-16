@@ -5,12 +5,14 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    email: '',
     token: '',
     isLoggedIn: false,
   },
   mutations: {
-    SIGNIN(state, { token }) {
-      state.token = token;
+    SIGNIN(state, { info }) {
+      state.email = info.email;
+      state.token = info.token;
       state.isLoggedIn = true;
     },
     SIGNOUT(state) {
@@ -18,8 +20,8 @@ export default new Vuex.Store({
     },
   },
   actions: {
-    signin({ commit }, token) {
-      commit('SIGNIN', token);
+    signin({ commit }, info) {
+      commit('SIGNIN', info);
     },
     signout({ commit }) {
       commit('SIGNOUT');
