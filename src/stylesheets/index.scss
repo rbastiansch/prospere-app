@@ -52,6 +52,7 @@ $blue: #2b84d2;
     border: solid 1px $gray;
     padding: $size / 5;
     color: $black;
+    font-size: $size - 0.2;
   }
 }
 
@@ -153,6 +154,7 @@ $blue: #2b84d2;
         border: solid 1px $gray;
         padding: $size / 4;
         color: $black;
+        font-size: $size - 0.2;
       }
     }
     .control-button {
