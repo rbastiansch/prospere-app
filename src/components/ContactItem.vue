@@ -1,5 +1,5 @@
 <template>
-  <div v-if="contact" class="contact-item">
+  <div v-if="contact && hasToken" class="contact-item">
     <Navigation></Navigation>
     <div class="main-info">
       <h2>{{ contact.name }}</h2>
@@ -42,6 +42,7 @@ export default {
   data() {
     return {
       contact: '',
+      hasToken: '',
     };
   },
   computed: {
@@ -51,9 +52,17 @@ export default {
     email() {
       return this.$store.state.email;
     },
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    },
   },
   mounted() {
-    this.getContact();
+    if (!this.isLoggedIn) {
+      this.$router.push('/login');
+    } else {
+      this.hasToken = true;
+      this.getContact();
+    }
   },
   methods: {
     getContact() {

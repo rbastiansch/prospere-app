@@ -16,6 +16,8 @@ export default new Vuex.Store({
       state.isLoggedIn = true;
     },
     SIGNOUT(state) {
+      state.email = '';
+      state.token = '';
       state.isLoggedIn = false;
     },
   },

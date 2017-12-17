@@ -1,5 +1,5 @@
 <template>
-  <div class="new-contact">
+  <div v-if="hasToken" class="new-contact">
     <Navigation />
     <h2>New Contact</h2>
     <form class="form">
@@ -37,6 +37,7 @@ export default {
       address: '',
       phone: '',
       background: '',
+      hasToken: '',
     };
   },
   computed: {
@@ -46,6 +47,16 @@ export default {
     email() {
       return this.$store.state.email;
     },
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn;
+    },
+  },
+  mounted() {
+    if (!this.isLoggedIn) {
+      this.$router.push('/login');
+    } else {
+      this.hasToken = true;
+    }
   },
   methods: {
     addContact() {
