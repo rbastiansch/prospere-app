@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <h2>Contact List</h2>
-    <div v-for="contact in contacts">
-      <div>
-        <p>{{ contact.name }}</p>
+  <div v-if="contacts" class="contact-list">
+    <h2>Contacts</h2>
+    <div class="item" v-for="contact in contacts">
+      <div class="info">
+        <p>Name: {{ contact.name }}</p>
+        <button class="button" type="button" v-on:click="viewContact(contact.id)">View</button>
       </div>
-      <button type="button" v-on:click="viewContact(contact.id)">View</button>
     </div>
   </div>  
 </template>

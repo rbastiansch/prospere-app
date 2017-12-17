@@ -1,11 +1,11 @@
 <template>
-  <div>
-    <h2>Sign In</h2>
-    <div>
-      <input v-model="email" type="text" placeholder="email">
-      <input v-model="password" type="password" placeholder="password">
-      <button type="button" v-on:click="login">Sign In</button>
+  <div class="login">
+    <h2>Sign In Prospere</h2>
+    <div class="control-input">
+      <input class="input" v-model="email" type="text" placeholder="email">
+      <input class="input" v-model="password" type="password" placeholder="password">
     </div>
+    <button class="button" type="button" v-on:click="login">Sign In</button>
   </div>
   
 </template>

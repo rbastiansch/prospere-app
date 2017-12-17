@@ -1,31 +1,42 @@
 <template>
-  <div>
+  <div class="new-contact">
+    <Navigation />
     <h2>New Contact</h2>
-    <form>
-      <div>
-        <input v-model="name" type="text" name="name" placeholder="Type name...">
+    <form class="form">
+      <div class="control-input">
+        <input class="input" v-model="name" type="text" name="name" placeholder="Name">
       </div>
-      <div>
-        <input v-model="address" type="text" name="email" placeholder="Type email...">
+      <div class="control-input">
+        <input class="input" v-model="address" type="text" name="email" placeholder="Email">
       </div>
-      <div>
-        <input v-model="phone" type="text" name="phone" placeholder="Type phone...">
+      <div class="control-input">
+        <input class="input" v-model="phone" type="text" name="phone" placeholder="Phone">
       </div>
-      <button type="button" v-on:click="addContact">Add contact</button>
+      <div class="control-textarea">
+        <textarea v-model="background" name="about" rows="5" cols="46" placeholder="About"></textarea>
+      </div>
+      <div class="control-button">
+        <button class="button" type="button" v-on:click="addContact">Add contact</button>
+      </div>
     </form>
   </div>  
 </template>
 
 <script>
+import Navigation from '@/components/Navigation';
 import { addContact } from '@/services/contacts';
 
 export default {
   name: 'NewContact',
+  components: {
+    Navigation,
+  },
   data() {
     return {
       name: '',
       address: '',
       phone: '',
+      background: '',
     };
   },
   computed: {
@@ -38,7 +49,7 @@ export default {
   },
   methods: {
     addContact() {
-      const { token, email, name, phone, address } = this;
+      const { token, email, name, phone, address, background } = this;
       const code = phone.substring(0, 2);
       const number = phone.substring(2);
       const data = {
@@ -50,6 +61,7 @@ export default {
         emails: [{
           address,
         }],
+        background,
       };
       addContact(token, email, data);
     },

@@ -1,0 +1,175 @@
+html {
+  font-size: 16px;
+  body {
+    margin: 0;
+  }
+}
+
+$size: 1em;
+$gray: #ddd;
+$black: #333;
+$white: #eee;
+$blue: #2b84d2;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+/*GENERIC CLASSES*/
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#app {
+  margin: 0;
+  padding: 0;
+  h1, h2, p {
+    color: $black;
+  }
+  h2 {
+    font-size: $size * 1.2;
+  }
+}
+
+.button {
+  @include border-radius(2px);
+  padding: $size / 4 $size;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.control-input {
+  margin-bottom: $size / 5;
+  .input {
+    @include border-radius(1px);
+    border: solid 1px $gray;
+    padding: $size / 5;
+    color: $black;
+  }
+}
+
+/*SPECIFIC CLASSES*/
+
+.login {
+  .button {
+    background-color: $black;
+    color: $white;
+  }
+}
+
+.nav-bar {
+  @extend .flex-row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: $black;
+  a {
+    margin: $size;
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+.principal {
+  margin: $size;
+  h1 {
+    font-size: $size * 1.8;
+  }
+  .button {
+    background-color: $black;
+    color: $white;;
+  }
+}
+
+.contact-list {
+  margin-bottom: $size;
+  .item {
+    @extend .flex-row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .info {
+      @extend .flex-row;
+      @include border-radius(2px);
+      text-align: center;
+      margin: $size / 5 0;
+      border: solid 1px $gray;
+      p {
+        margin: $size / 2;
+      }
+      .button {
+        margin: 0 $size;
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+.contact-item {
+  margin: $size;
+  .secundary-info {
+    @extend .flex-row;
+    flex-wrap: wrap;
+    .item {
+      margin-right: $size * 2;
+      .tag {
+        font-weight: bold;
+      }
+      p {
+        margin: $size / 5 0;
+      }
+      .list {
+        @extend .flex-row;
+        flex-wrap: wrap;
+        margin-bottom: $size;
+        .list-item {
+          margin-right: $size;
+        }
+      }
+    }
+  }
+}
+
+.new-contact {
+  margin: $size;
+  .form {
+    @extend .flex-row;
+    flex-wrap: wrap;
+    .control-input {
+      margin-right: $size * 2;
+      input {
+        width: 100%;
+      }
+    }
+    .control-textarea {
+      width: 100%;
+      textarea {
+        @include border-radius(1px);
+        border: solid 1px $gray;
+        padding: $size / 4;
+        color: $black;
+      }
+    }
+    .control-button {
+      margin-top: $size / 2;
+      width: 100%;
+      .button {
+        background-color: $black;
+        color: $white;
+      }
+    }
+  }
+}
+
+.navigation {
+  width: 100%;
+  a {
+    color: $blue;
+    cursor: pointer;
+  }
+}

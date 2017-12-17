@@ -1,8 +1,7 @@
 <template>
-  <div v-if="hasToken">
-    <h1>Prospere App</h1>
+  <div v-if="hasToken" class="principal">
     <ContactList></ContactList>
-    <button type="button" v-on:click="newContact">Add Contact</button>
+    <button class="button" type="button" v-on:click="newContact">Add contact</button>
   </div>
 </template>
 
