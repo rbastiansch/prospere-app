@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import contacts from '@/services/contacts';
+import { getContacts } from '@/services/contacts';
 
 export default {
   name: 'ContactList',
@@ -34,7 +34,7 @@ export default {
   methods: {
     getContacts() {
       const { token, email } = this;
-      contacts.getContacts(token, email)
+      getContacts(token, email)
         .then((response) => {
           this.contacts = response.data.contacts;
         });

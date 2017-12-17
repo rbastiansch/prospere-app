@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import contacts from '@/services/contacts';
+import { addContact } from '@/services/contacts';
 
 export default {
   name: 'NewContact',
@@ -51,7 +51,7 @@ export default {
           address,
         }],
       };
-      contacts.addContact(token, email, data);
+      addContact(token, email, data);
     },
   },
 };
