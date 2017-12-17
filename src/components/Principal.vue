@@ -1,7 +1,7 @@
 <template>
   <div v-if="hasToken" class="principal">
     <ContactList></ContactList>
-    <button class="button" type="button" v-on:click="newContact">Add contact</button>
+    <button class="button" type="button" v-on:click="newContact">New contact</button>
   </div>
 </template>
 

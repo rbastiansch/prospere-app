@@ -16,7 +16,7 @@
         <textarea v-model="background" name="about" rows="5" cols="46" placeholder="About"></textarea>
       </div>
       <div class="control-button">
-        <button class="button" type="button" v-on:click="addContact">Add contact</button>
+        <button class="button" type="button" v-on:click="addContact">Submit</button>
       </div>
     </form>
   </div>  
