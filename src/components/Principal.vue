@@ -2,6 +2,7 @@
   <div v-if="hasToken">
     <h1>Prospere App</h1>
     <ContactList></ContactList>
+    <button type="button" v-on:click="newContact">Add Contact</button>
   </div>
 </template>
 
@@ -29,6 +30,11 @@ export default {
     } else {
       this.hasToken = true;
     }
+  },
+  methods: {
+    newContact() {
+      this.$router.push('/new');
+    },
   },
 };
 </script>

@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Principal from '@/components/Principal';
 import SignIn from '@/components/SignIn';
 import ContactItem from '@/components/ContactItem';
+import NewContact from '@/components/NewContact';
 
 Vue.use(Router);
 
@@ -18,6 +19,11 @@ export default new Router({
       name: 'contact',
       component: ContactItem,
       props: true,
+    },
+    {
+      path: '/new',
+      name: 'new',
+      component: NewContact,
     },
     {
       path: '/login',

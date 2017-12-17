@@ -24,6 +24,19 @@ const contacts = {
       },
     });
   },
+
+  addContact(token, email, data) {
+    return axios({
+      method: 'post',
+      url: 'https://staging.api.meuprospere.com.br/v1/contacts',
+      headers: {
+        'content-type': 'application/json',
+        'access-token': token,
+        uid: email,
+      },
+      data,
+    });
+  },
 };
 
 export default contacts;
