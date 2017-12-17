@@ -5,6 +5,7 @@
       <div>
         <p>{{ contact.name }}</p>
       </div>
+      <button type="button" v-on:click="viewContact(contact.id)">View</button>
     </div>
   </div>  
 </template>
@@ -32,12 +33,14 @@ export default {
   },
   methods: {
     getContacts() {
-      const token = this.token;
-      const email = this.email;
+      const { token, email } = this;
       contacts.getContacts(token, email)
         .then((response) => {
           this.contacts = response.data.contacts;
         });
+    },
+    viewContact(id) {
+      this.$router.push({ name: 'contact', params: { id } });
     },
   },
 };

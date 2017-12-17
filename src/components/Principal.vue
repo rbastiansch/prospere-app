@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="hasToken">
     <h1>Prospere App</h1>
     <ContactList></ContactList>
   </div>
@@ -13,6 +13,11 @@ export default {
   components: {
     ContactList,
   },
+  data() {
+    return {
+      hasToken: false,
+    };
+  },
   computed: {
     isLoggedIn() {
       return this.$store.state.isLoggedIn;
@@ -21,6 +26,8 @@ export default {
   mounted() {
     if (!this.isLoggedIn) {
       this.$router.push('/login');
+    } else {
+      this.hasToken = true;
     }
   },
 };
