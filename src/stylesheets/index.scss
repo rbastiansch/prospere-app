@@ -1,3 +1,5 @@
+@import './flexbox.scss';
+
 html {
   font-size: 16px;
   body {
@@ -10,6 +12,7 @@ $gray: #ddd;
 $black: #333;
 $white: #eee;
 $blue: #2b84d2;
+$red: #c33e30;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -21,9 +24,9 @@ $blue: #2b84d2;
 /*GENERIC CLASSES*/
 
 .flex-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  @include flexbox;
+  @include flex-direction(row);
+  @include align-items(center);
 }
 
 #app {
@@ -68,8 +71,8 @@ $blue: #2b84d2;
 
 .nav-bar {
   @extend .flex-row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
   background-color: $black;
   a {
     margin: $size;
@@ -94,11 +97,14 @@ $blue: #2b84d2;
   margin-bottom: $size;
   .item {
     @extend .flex-row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    @include justify-content(flex-start);
+    @include flex-wrap(wrap);
     .info {
       @extend .flex-row;
       @include border-radius(2px);
+      @include justify-content(space-between);
+      @include flex-grow(1);
+      max-width: 40em;
       text-align: center;
       margin: $size / 5 0;
       border: solid 1px $gray;
@@ -117,7 +123,7 @@ $blue: #2b84d2;
   margin: $size;
   .secundary-info {
     @extend .flex-row;
-    flex-wrap: wrap;
+    @include flex-wrap(wrap);
     .item {
       margin-right: $size * 2;
       .tag {
@@ -128,7 +134,7 @@ $blue: #2b84d2;
       }
       .list {
         @extend .flex-row;
-        flex-wrap: wrap;
+        @include flex-wrap(wrap);
         margin-bottom: $size;
         .list-item {
           margin-right: $size;
@@ -142,7 +148,7 @@ $blue: #2b84d2;
   margin: $size;
   .form {
     @extend .flex-row;
-    flex-wrap: wrap;
+    @include flex-wrap(wrap);
     .control-input {
       margin-right: $size * 2;
       input {
@@ -157,6 +163,13 @@ $blue: #2b84d2;
         padding: $size / 4;
         color: $black;
         font-size: $size - 0.2;
+      }
+    }
+    .control-errors {
+      margin: $size / 5 0;
+      span {
+        font-size: $size - 0.1;
+        color: $red;
       }
     }
     .control-button {
