@@ -16,7 +16,7 @@
         <textarea v-model="background" name="about" rows="5" cols="46" placeholder="About"></textarea>
       </div>
       <div class="control-button">
-        <button class="button" type="button" v-on:click="addContact">Submit</button>
+        <button class="button" type="button" name="submit" v-on:click="addContact">Submit</button>
       </div>
     </form>
   </div>  
@@ -75,6 +75,7 @@ export default {
         background,
       };
       addContact(token, email, data);
+      this.$router.go(-1);
     },
   },
 };

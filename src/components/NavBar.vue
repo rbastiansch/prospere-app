@@ -1,7 +1,7 @@
 <template>
   <div class="nav-bar">
-    <router-link :to="{ name: 'principal'}">Home</router-link>
-    <a v-on:click="logout">Logout</a>
+    <router-link :to="{ name: 'principal'}" id="home">Home</router-link>
+    <a v-on:click="logout" id="logout">Logout</a>
   </div>
 </template>
 

@@ -2,10 +2,10 @@
   <div class="login">
     <h2>Sign In Prospere</h2>
     <div class="control-input">
-      <input class="input" v-model="email" type="text" placeholder="email">
-      <input class="input" v-model="password" v-on:keyup.enter="login" type="password" placeholder="password">
+      <input class="input" v-model="email" type="text" name="email" placeholder="email">
+      <input class="input" v-model="password" v-on:keyup.enter="login" type="password" name="password" placeholder="password">
     </div>
-    <button class="button" type="button" v-on:click="login">Sign In</button>
+    <button class="button" type="button" name="submit" v-on:click="login">Sign In</button>
   </div>
   
 </template>

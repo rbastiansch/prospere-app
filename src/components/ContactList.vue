@@ -4,7 +4,7 @@
     <div class="item" v-for="contact in contacts">
       <div class="info">
         <p>Name: {{ contact.name }}</p>
-        <button class="button" type="button" v-on:click="viewContact(contact.id)">View</button>
+        <button class="button" type="button" name="view" v-on:click="viewContact(contact.id)">View</button>
       </div>
     </div>
   </div>  
